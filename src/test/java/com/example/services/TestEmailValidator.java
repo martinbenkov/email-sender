@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.example.domain.Email;
+import com.example.services.impl.EmailValidationServiceImpl;
 
 public class TestEmailValidator
 {
@@ -13,7 +14,7 @@ public class TestEmailValidator
 
 	public TestEmailValidator()
 	{
-		emailValidationService = new EmailValidationService();
+		emailValidationService = new EmailValidationServiceImpl();
 	}
 	
 	@Test
