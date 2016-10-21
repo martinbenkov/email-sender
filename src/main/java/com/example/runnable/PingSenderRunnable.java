@@ -31,8 +31,6 @@ public class PingSenderRunnable  implements Runnable
 				emailSenderManager.sendToProviderQueue(ping);
 				Thread.sleep(delay);
 				
-				//TODO remove break
-				break;
 			}
 			catch (Throwable t)
 			{
