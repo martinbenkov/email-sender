@@ -5,6 +5,7 @@ The solution focuses on back-end
 Trade-offs - use prototype spring beans and remove static initializer (Init.java)
 
 Endpoints:
+
 POST /send - send an email. In the body of the request should be a json. All fields should not be null or empty. Example:
 
 {
