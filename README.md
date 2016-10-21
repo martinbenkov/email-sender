@@ -16,7 +16,9 @@ POST /send - send an email. In the body of the request should be a json. All fie
 
 Response Codes
 202 - mail is accepted and is queued. In the response there's a location header to check the status
+
 400 - if something is wrong with the request (not valid emails etc.)
+
 500 - error in the service
 
 
@@ -74,9 +76,13 @@ The deploy should be something like (will update one by one all the applications
 
 The integration tests are going to be very dependant on the framework and infrastructure. Some cases may be:
 1. Send email, check db status, check if email has arrived.
+
 2. Insert a pending email in the db, call /recover, check if the status in the db is changed;
+
 3. Give wrong configuration so that no email can be send, try to send one, check status in db, call recover, check if attemts is grown, call it more than maxAttemtps time, check status
+
 4. Wrong configuratoin for one provider, check if emails are send. Same for other provider.
+
 5. Test the recovery mechanism with 2 or more instances running at the same time. See if one email can be recovered by more than one application.
 
 Adding db healtch checks may be added to check.
