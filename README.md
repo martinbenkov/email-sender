@@ -1,5 +1,7 @@
 Email Service
+
 The solution focuses on back-end
+
 Trade-offs - use prototype spring beans and remove static initializer (Init.java)
 
 Endpoints:
