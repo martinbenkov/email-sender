@@ -28,7 +28,12 @@ public class FastestRespondingRoutingStratagy implements RoutingStratagy
 	{
 		this.acceptableTimeDelta = acceptableTimeDelta;
 	}
-
+	
+	/**
+	 * Returns the EmailSenderManager that has sent successfully most recently.
+	 * If there are several EmailSenderManager within a {@link #acceptableTimeDelta} distance
+	 * it returns a random one.
+	 */
 	public EmailSenderManager getEmailSender(List<EmailSenderManager> emailSenderManagers)
 	{
 		c = ++c % 10000000;
