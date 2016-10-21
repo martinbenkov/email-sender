@@ -78,6 +78,7 @@ Also the lb does the ssl offloading so the service is http only.
 
 
 The deploy should be something like (will update one by one all the applications):
+
 1. Check if node n-1 is ok 
 2. Send DELETE /status to disable the node
 3. Wait for a few seconds
@@ -91,13 +92,9 @@ The deploy should be something like (will update one by one all the applications
 The integration tests are going to be very dependant on the framework and infrastructure. Some cases may be:
 
 1. Send email, check db status, check if email has arrived.
-
 2. Insert a pending email in the db, call /recover, check if the status in the db is changed;
-
 3. Give wrong configuration so that no email can be send, try to send one, check status in db, call recover, check if attemts is grown, call it more than maxAttemtps time, check status
-
 4. Wrong configuratoin for one provider, check if emails are send. Same for other provider.
-
 5. Test the recovery mechanism with 2 or more instances running at the same time. See if one email can be recovered by more than one application.
 
 Adding db healtch checks may be added to check.
