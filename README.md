@@ -14,7 +14,8 @@ POST /send - send an email. In the body of the request should be a json. All fie
 	"text": "json"
 }
 
-Response Codes
+Response Codes 
+
 202 - mail is accepted and is queued. In the response there's a location header to check the status
 
 400 - if something is wrong with the request (not valid emails etc.)
@@ -23,28 +24,41 @@ Response Codes
 
 
 GET /send/{emailId} - checks the status of an email with id
+
 Response Codes:
+
 200 - email is sent
+
 202 - email is queued for delivery
+
 204 - no such email
+
 400 - email cannot be sent
+
 406 - email was rejecteed by the sending providers
+
 500 - error in the service
 
 POST /recover - tries to get the oldest not sent email from the database and retries to send it
+
 200 - always returns 200
 
 GET /statistics - shows some statistics about the application
+
 200 - always returns 200
 
 GET /status - checks if the application is healthy.
+
 200 - if the application is healthy and can send emails
+
 404 - otherwise
 
 DELETE /status - makes the /status return 404. Should be used in deploy.
+
 200 - always returns 200
 
 POST /status - makes the /status return 200.
+
 200 - always returns 200
 
 There's a DDoS filter that allows 5 requests from a connection per second. Requests in excess of this are first delayed, then throttled.
@@ -75,6 +89,7 @@ The deploy should be something like (will update one by one all the applications
 
 
 The integration tests are going to be very dependant on the framework and infrastructure. Some cases may be:
+
 1. Send email, check db status, check if email has arrived.
 
 2. Insert a pending email in the db, call /recover, check if the status in the db is changed;
