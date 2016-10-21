@@ -6,12 +6,14 @@ Trade-offs - use prototype spring beans and remove static initializer (Init.java
 
 Endpoints:
 POST /send - send an email. In the body of the request should be a json. All fields should not be null or empty. Example:
+
 {
 	"from": "test@example.com",
 	"to": "to@example.com",
 	"subject": "json mail",
 	"text": "json"
 }
+
 Response Codes
 202 - mail is accepted and is queued. In the response there's a location header to check the status
 400 - if something is wrong with the request (not valid emails etc.)
